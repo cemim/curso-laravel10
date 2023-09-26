@@ -1,8 +1,13 @@
+[<< Back To README](./README.md)
+
 ## Requirements
 - Laravel 10
 - PHP 8.2
 - Node 18.18.0
 - Composer 2.6.3
+
+## Optional
+XAMPP or docker with docker-compose
 
 ## Configuration Windows Xampp
 - In file "C:\xampp\apache\conf\extra\httpd-vhosts.conf":
@@ -25,6 +30,15 @@
 ```
 127.0.0.1	laravel
 ```
+
+## Configuration Docker
+- Rename file docker/sample.env to .env
+- Run docker-compose:
+
+```
+$ docker-compose up -d
+```
+
 ## Instalation
 ```
 composer install
