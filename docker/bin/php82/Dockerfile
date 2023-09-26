@@ -2,7 +2,6 @@ FROM php:8.2-apache
 
 RUN a2enmod rewrite
 
-
 # Update
 RUN apt-get -y update --fix-missing && \
     apt-get upgrade -y && \
@@ -50,18 +49,8 @@ RUN pecl install xdebug && \
 # Other PHP7 Extensions
 RUN apt-get -y update --fix-missing && \
     apt-get upgrade -y && \
-    apt-get install libxml2-dev
-
-RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install pdo_sqlite
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-install curl
-RUN docker-php-ext-install zip
-RUN docker-php-ext-install -j$(nproc) intl
-RUN docker-php-ext-install mbstring
-RUN docker-php-ext-install gettext
-RUN docker-php-ext-install soap
-RUN docker-php-ext-install exif
+    apt-get install libxml2-dev && \
+    docker-php-ext-install pdo_mysql pdo_sqlite mysqli curl zip -j$(nproc) intl mbstring gettext soap exif
 
 
 # Install Freetype 
