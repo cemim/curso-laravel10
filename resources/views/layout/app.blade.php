@@ -7,9 +7,12 @@
     <title>Cadastro de Produtos</title>
     {{-- sass Bootstrap --}}
     @vite(['resources/sass/app.scss'])
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        @component('componente_navbar')            
+        @endcomponent
         <main role="main">
             @hasSection('body')
                 @yield('body')
