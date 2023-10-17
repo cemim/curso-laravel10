@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-})->name('home');
+})->name('home.index');
 
-Route::get('/produtos', [ControladorProduto::class, 'index'])->name('produtos');
-Route::get('/categorias', [ControladorCategoria::class, 'index'])->name('categorias');
-
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/produtos', [ControladorProduto::class, 'index'])->name('produtos.index');
+Route::get('/categorias', [ControladorCategoria::class, 'index'])->name('categorias.index');
+Route::get('/categorias/novo', [ControladorCategoria::class, 'create'])->name('categorias.create');
+Route::post('/categorias', [ControladorCategoria::class, 'store'])->name('categorias.store');
 
 Auth::routes();
 

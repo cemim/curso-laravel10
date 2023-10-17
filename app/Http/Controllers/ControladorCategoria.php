@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 // Comando cria controlador com o CRUD pronto
@@ -21,7 +22,7 @@ class ControladorCategoria extends Controller
      */
     public function create()
     {
-        //
+        return view('novacategoria');
     }
 
     /**
@@ -29,7 +30,9 @@ class ControladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cat = new Categoria();
+        $cat->nome = $request->input("nomeCategoria");
+        $cat->save();
     }
 
     /**
