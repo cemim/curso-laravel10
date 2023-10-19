@@ -20,10 +20,14 @@ Route::get('/', function () {
     return view('index');
 })->name('home.index');
 
-Route::get('/produtos', [ControladorProduto::class, 'index'])->name('produtos.index');
 Route::get('/categorias', [ControladorCategoria::class, 'index'])->name('categorias.index');
 Route::get('/categorias/novo', [ControladorCategoria::class, 'create'])->name('categorias.create');
 Route::post('/categorias', [ControladorCategoria::class, 'store'])->name('categorias.store');
+Route::get('/categorias/edit/{id}', [ControladorCategoria::class, 'edit'])->name('categorias.edit');
+Route::post('/categorias/edit/{id}', [ControladorCategoria::class, 'update'])->name('categorias.update');
+Route::get('/categorias/delete/{id}', [ControladorCategoria::class, 'destroy'])->name('categorias.destroy');
+
+Route::resource('/produtos', ControladorProduto::class);
 
 Auth::routes();
 

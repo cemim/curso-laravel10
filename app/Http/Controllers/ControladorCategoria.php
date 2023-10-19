@@ -14,7 +14,8 @@ class ControladorCategoria extends Controller
      */
     public function index()
     {
-        return view('categorias');
+        $categorias = Categoria::all();
+        return view('categorias.categorias', compact('categorias'));
     }
 
     /**
@@ -22,7 +23,7 @@ class ControladorCategoria extends Controller
      */
     public function create()
     {
-        return view('novacategoria');
+        return view('categorias.novacategoria');
     }
 
     /**
@@ -33,6 +34,7 @@ class ControladorCategoria extends Controller
         $cat = new Categoria();
         $cat->nome = $request->input("nomeCategoria");
         $cat->save();
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -48,7 +50,11 @@ class ControladorCategoria extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cat = Categoria::find($id);
+        if(isset($cat)){
+            return view('categorias.editarcategoria', compact('cat'));
+        }
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -56,7 +62,12 @@ class ControladorCategoria extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cat = Categoria::find($id);
+        if(isset($cat)){
+            $cat->nome = $request->input('nomeCategoria');
+            $cat->save();
+        }
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -64,6 +75,10 @@ class ControladorCategoria extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cat = Categoria::find($id);
+        if(isset($cat)){
+            $cat->delete();
+        }
+        return redirect()->route('categorias.index');
     }
 }
