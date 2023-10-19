@@ -51,11 +51,20 @@
                                 <a href="{{ route('clientes.index') }}" class="btn btn-primary btn-sm margin-top">Cancelar</a>                                
                             </form>
                         </div>
+
+                        {{-- $errors é variavel que retorna da validação --}}
+                        @if ($errors->any())
+                            <div class="card-footer">
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger" role="alert">{{$error}}</div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </main>    
     <script src="{{asset('js/app.js')}}"></script>
     {{-- sass Bootstrap --}}
     @vite(['resources/js/app.js'])
