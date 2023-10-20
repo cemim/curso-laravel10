@@ -32,20 +32,40 @@
                             <form action="{{ route('clientes.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="nome">Nome do Cliente</label>
-                                    <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome do Cliente">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nome" class="form-control {{$errors->has('nome')?'is-invalid':''}}" name="nome" placeholder="Nome do Cliente">
+                                    @if ($errors->has('nome'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('nome')}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group margin-top">
-                                    <label for="idade">Idade do Cliente</label>
-                                    <input type="number" id="idade" class="form-control" name="idade" placeholder="Idade do Cliente">
+                                    <label for="idade">Idade</label>
+                                    <input type="number" id="idade" class="form-control  {{$errors->has('idade')?'is-invalid':''}}" name="idade" placeholder="Idade do Cliente">
+                                    @if ($errors->has('idade'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('idade')}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group margin-top">
-                                    <label for="endereco">Endereço do Cliente</label>
-                                    <input type="text" id="endereco" class="form-control" name="endereco" placeholder="Endereco do Cliente">
+                                    <label for="endereco">Endereço</label>
+                                    <input type="text" id="endereco" class="form-control {{$errors->has('endereco')?'is-invalid':''}}" name="endereco" placeholder="Endereco do Cliente">
+                                    @if ($errors->has('endereco'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('endereco')}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group margin-top">
-                                    <label for="email">E-mail do Cliente</label>
-                                    <input type="text" id="email" class="form-control" name="email" placeholder="E-mail do Cliente">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" id="email" class="form-control {{$errors->has('email')?'is-invalid':''}}" name="email" placeholder="E-mail do Cliente">
+                                    @if ($errors->has('email'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('email')}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm margin-top">Salvar</button>
                                 <a href="{{ route('clientes.index') }}" class="btn btn-primary btn-sm margin-top">Cancelar</a>                                
