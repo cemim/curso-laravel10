@@ -27,7 +27,7 @@ Route::get('/categorias/edit/{id}', [ControladorCategoria::class, 'edit'])->name
 Route::post('/categorias/edit/{id}', [ControladorCategoria::class, 'update'])->name('categorias.update');
 Route::get('/categorias/delete/{id}', [ControladorCategoria::class, 'destroy'])->name('categorias.destroy');
 
-Route::resource('/produtos', ControladorProduto::class);
+Route::get('/produtos', [ControladorProduto::class, 'indexView'])->name('produtos.indexView');
 
 Auth::routes();
 

@@ -10,7 +10,7 @@
                     <a class="nav-link {{request()->routeIs('home.*') ? 'active' : ''}}" aria-current="page" href="{{ route('home.index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{request()->routeIs('produtos.*') ? 'active' : ''}}"  aria-current="page" href="{{ route('produtos.index') }}">Produtos</a>
+                    <a class="nav-link {{request()->routeIs('produtos.*') ? 'active' : ''}}"  aria-current="page" href="{{ route('produtos.indexView') }}">Produtos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{request()->routeIs('categorias.*') ? 'active' : ''}}" aria-current="page" href="{{ route('categorias.index') }}">Categorias</a>

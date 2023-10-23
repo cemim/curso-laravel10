@@ -21,5 +21,9 @@
     </div>
     {{-- Javascript Bootstrap --}}
     @vite(['resources/js/app.js'])
+    <script type="text/javascript" src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+    @hasSection ('javascript')
+        @yield('javascript')
+    @endif
 </body>
 </html>
