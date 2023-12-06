@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\DepartamentoControlador;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutoControlador;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +23,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/produtos', [ProdutoControlador::class, 'index'])->name('produtos');
+Route::get('/departamentos', [DepartamentoControlador::class, 'index'])->name('departamentos');
+Route::get('/usuario', function() {
+    return view('usuario');
+})->name('usuario');

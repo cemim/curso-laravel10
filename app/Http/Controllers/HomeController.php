@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+/** 
+* composer require laravel/ui 
+* php artisan ui:auth
+*/
 class HomeController extends Controller
 {
     /**
