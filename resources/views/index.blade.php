@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
                 Tabela de clientes
             </div>
             <div class="card-body">
-                <h5 class="card-title">Exibindo 10 Clientes de 1000 (1 a 10)</h5>
+                <h5 class="card-title">Exibindo {{$clientes->count()}} Clientes de {{$clientes->total()}} ({{$clientes->firstItem()}} a {{$clientes->lastItem()}})</h5>
                 <table class="table table-hover">
                     <thead>
                         <th scope="col">#</th>
@@ -36,29 +36,19 @@
                         <th scope="col">Email</th>
                     </thead>
                     <tbody>
+                        @foreach ($clientes as $c)
                         <tr>
-                            <td>1</td>
-                            <td>Cesar</td>
-                            <td>Augusto</td>
-                            <td>teste@teste.com</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Cesar</td>
-                            <td>Augusto</td>
-                            <td>teste@teste.com</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Cesar</td>
-                            <td>Augusto</td>
-                            <td>teste@teste.com</td>
-                        </tr>
+                            <td>{{$c->id}}</td>
+                            <td>{{$c->nome}}</td>
+                            <td>{{$c->sobrenome}}</td>
+                            <td>{{$c->email}}</td>
+                        </tr>                            
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                Paginas
+                {{$clientes->links('pagination::bootstrap-4')}}
             </div>
         </div>
     </div>    
