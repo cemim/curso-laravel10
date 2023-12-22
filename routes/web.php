@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', ClienteControlador::class);
+// Route::resource('/', ClienteControlador::class);
+Route::get('/', [ClienteControlador::class, 'indexjs']);
+Route::get('/json', [ClienteControlador::class, 'indexjson']);
 
 Auth::routes();
 
